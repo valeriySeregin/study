@@ -19,8 +19,8 @@ module Exercise
         films
           .filter { |film| !film['rating_kinopoisk'].nil? }
           .filter { |film| film['rating_kinopoisk'].to_f >= threshold }
-          .map { |film| film['name'].split('').filter { |char| char.eql? 'и' } }
-          .reduce(0) { |acc, film| acc + film.length }
+          .map { |film| film['name'].count 'и' }
+          .reduce(0) { |acc, count| acc + count }
       end
     end
   end
